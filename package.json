@@ -1,7 +1,7 @@
 {
-  "name": "skeleton",
-  "version": "1.0.0",
-  "description": "Tom's skeleton environment",
+  "name": "tomhardman.xyz",
+  "version": "0.0.1v",
+  "description": "Personal website revamp",
   "main": "app/index.js",
   "scripts": {
     "postinstall": "gulp build",

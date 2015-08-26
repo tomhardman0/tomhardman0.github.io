@@ -1,5 +1,5 @@
 const NODE_ENV = NODE_ENV || 'development'
 let config = {
-  name: 'Skeleton'
+  name: 'tomhardman.xyz'
 }
 export default config

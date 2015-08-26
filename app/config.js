@@ -3,7 +3,7 @@ var PRODUCTION = process.env.NODE_ENV === 'production'
 var STAGING = process.env.NODE_ENV === 'staging'
 
 config.app = {
-  name: 'skeleton',
+  name: 'tomhardman.xyz',
   port: process.env.EXPRESS_PORT || process.env.PORT || 3500
 }
 
