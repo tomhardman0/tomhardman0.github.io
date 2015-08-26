@@ -1,6 +1,6 @@
-# Tom's Skeleton
+# Update to tomhardman.xyz [WIP]
 
-Basic skeleton for sites running on node.
+Built on my basic skeleton
 
 # Running
 
@@ -8,6 +8,7 @@ Basic skeleton for sites running on node.
 
 # Development
 
+- npm start
 - gulp dev
 
 # Production
