@@ -1,6 +1,6 @@
 # Update to tomhardman.xyz [WIP]
 
-Built on my basic skeleton
+Built on the front end skeleton.
 
 # Running
 

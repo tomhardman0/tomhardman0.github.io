@@ -1,4 +1,5 @@
 var path = require('path');
+var config = require('./config')
 
 module.exports = function(app) {
 
@@ -7,7 +8,9 @@ module.exports = function(app) {
   })
 
   app.get('/wip/', function(req, res) {
-    res.render('pages/home')
+    res.render('pages/home', {
+      title: config.app.name
+    })
   })
 
 }
