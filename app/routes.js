@@ -7,8 +7,14 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, '/views', 'index.html'));
   })
 
-  app.get('/wip/', function(req, res) {
+  app.get('/wip', function(req, res) {
     res.render('pages/home', {
+      title: config.app.name
+    })
+  })
+
+  app.get('/bg', function(req, res) {
+    res.render('pages/bg', {
       title: config.app.name
     })
   })
