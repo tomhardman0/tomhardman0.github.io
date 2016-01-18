@@ -19,18 +19,16 @@ export default (app) => {
 
     function draw() {
 
-        for (let x = 0; x < 10000; x++) {
+        setTimeout(() => {
+            context.beginPath();
+            context.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+            context.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
+            context.strokeStyle = `rgb(${colours[Math.floor(Math.random()*3)]})`;
+            context.closePath();
+            context.stroke();
 
-            setTimeout(() => {
-                context.beginPath();
-                context.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
-                context.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
-                context.strokeStyle = `rgb(${colours[Math.floor(Math.random()*3)]})`;
-                context.closePath();
-                context.stroke();
-            }, x*2);
-
-        }
+            draw();
+        }, 2);
 
     }
 
