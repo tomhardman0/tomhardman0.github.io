@@ -28,7 +28,7 @@ export default (app) => {
             context.stroke();
 
             draw();
-        }, 2);
+        });
 
     }
 
@@ -42,7 +42,7 @@ export default (app) => {
                 }, y*5);
 
             }
-        }, 1000);
+        }, 2000);
 
     }
 
