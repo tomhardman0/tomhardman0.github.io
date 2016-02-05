@@ -55,6 +55,50 @@ h1 {
   line-height: 0.8em;
   font-variant: small-caps;
   position: fixed;
+  opacity: 0;
   bottom: 0;
-  left: 0;
-  color: #fcfcfc; }
+  color: #fcfcfc;
+  transform: translateX(-50px);
+  animation: slideIn cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s 0.5s 1 normal forwards; }
+
+.menu {
+  opacity: 0;
+  animation: fadeIn cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s 0.5s 1 normal forwards; }
+
+.menu__link {
+  stroke: white; }
+
+.menu__node:hover .node__circle {
+  transform: scale(2); }
+
+.menu__node:hover .node__text {
+  transform: scale(1);
+  opacity: 1; }
+
+.node__circle {
+  fill: #800020;
+  transition: 0.3s; }
+
+.node__text {
+  font-family: 'Poiret One', cursive;
+  color: #fcfcfc;
+  font-size: 16px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: 0.3s; }
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0; }
+  20% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
