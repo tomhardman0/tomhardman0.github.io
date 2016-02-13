@@ -46,20 +46,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-html {
+body {
   background-color: #333333; }
-
-.node__circle {
-  fill: #800020;
-  transition: 0.3s; }
-
-.node__text {
-  font-family: 'Poiret One', cursive;
-  color: #fcfcfc;
-  font-size: 16px;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: 0.3s; }
 
 .table {
   display: table;
@@ -70,9 +58,6 @@ html {
   display: table-cell;
   text-align: center;
   vertical-align: middle; }
-
-section, div {
-  box-sizing: border-box; }
 
 .cont {
   width: 100vw;

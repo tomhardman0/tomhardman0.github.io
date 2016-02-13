@@ -1,5 +1,5 @@
-import interactions from './interactions';
+import svg from './svg';
 
 export default [
-    interactions
+    svg
 ]

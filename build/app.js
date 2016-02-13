@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var interactions = (function () {
+    var svg = (function () {
 
         var width = window.innerWidth / 2;
         var height = window.innerHeight / 2;
@@ -59,7 +59,7 @@
         }
     })
 
-    var controllers = [interactions];
+    var controllers = [svg];
 
     controllers.forEach(function (ctrl) {
       return ctrl();

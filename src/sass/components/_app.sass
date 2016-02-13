@@ -1,61 +1,91 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One')
 
-html
+body
   background-color: #333333
 
-// h1
-//   font-family: 'Poiret One', cursive
-//   font-variant: small-caps
-//   color: darken(white, 1%)
-//   font-size: 5em
-//   line-height: 0.8em
-//   position: fixed
-//   opacity: 0
-//   bottom: 0
-//   transform: translateX(-50px)
-//   animation: slideIn cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s 0.5s 1 normal forwards
-//
-//
-// .menu
-//   opacity: 0
-//   animation: fadeIn cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s 0.5s 1 normal forwards
-//
-// .menu__link
-//   stroke: white
-//
-// .menu__node
-//   &:hover
-//     .node__circle
-//       transform: scale(2)
-//     .node__text
-//       transform: scale(1)
-//       opacity: 1
-//
-.node__circle
-  fill: #800020
-  transition: 0.3s
+.table
+  display: table
+  width: 100%
+  height: 100%
 
-.node__text
+.table-cell-valign
+  display: table-cell
+  text-align: center
+  vertical-align: middle
+
+.cont
+  width: 100vw
+  height: 100vh
+
+.cont__block
+  overflow: hidden
+  width: 50vw
+  height: 50vh
+  float: left
+
+.cont__block--d3
+  position: relative
+
+.svg-interaction
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: -1
+
+.block
+  width: 100%
+  height: 100%
+  transition: transform 5s ease-in
+  cursor: pointer
+  overflow: hidden
+  &:hover
+    transform: translateZ(0) scale(1.5)
+    .text__header
+      color: white
+
+.block--1
+  cursor: default
+  background-image: url('img/block--1.jpg')
+  background-size: cover
+  transform: translateZ(0) scale(1.2)
+
+.block--2
+  background-image: url('img/block--2.png')
+  background-size: cover
+//
+// .block--3
+// .block--4
+
+.block__text
+  display: inline-block
+
+.text
   font-family: 'Poiret One', cursive
+  font-variant: small-caps
   color: darken(white, 1%)
-  font-size: 16px
-  opacity: 0
-  transform: scale(0.9)
-  transition: 0.3s
-//
-//
-// @keyframes slideIn
-//   0%
-//     transform: translateX(-50px)
-//     opacity: 0
-//   20%
-//     opacity: 0
-//   100%
-//     opacity: 1
-//     transform: translateX(0)
-//
-// @keyframes fadeIn
-//   0%
-//     opacity: 0
-//   100%
-//     opacity: 1
+  font-size: 1.6em
+
+.text__header
+  font-size: 2.4em
+  &:after
+    content: ''
+    display: block
+    position: relative
+    top: 4px
+    height: 1px
+    margin: 0 auto 10px
+    width: 96%
+    background-color: white
+    color: white
+
+.footer
+  width: 100%
+  height: 30px
+
+.footer__text
+  text-align: center
+  margin: 0 auto
+  font-size: 0.8em
+  line-height: 30px
