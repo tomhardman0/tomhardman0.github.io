@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    
+    meta(charset="utf8")
+    
+    title  Tom Hardman &#x1f60A;
+    link(rel="stylesheet", type="text/css", href="build/index.css")
+    
+  body
+  
+    section.cont
+    
+      section.cont__block
+        .block.block--1
+          .table
+            .table-cell-valign
+              .block__text
+                h1.text.text__header Tom Hardman
+                p.text Developer
+            
+      section.cont__block
+        .block.block--2
+          .table
+            .table-cell-valign
+              .block__text
+                h1.text.text__header Work
+          
+      section.cont__block.cont__block--d3.js-nodes
+        a(href="http://github.com/tomhardman0", target="_blank")
+          .block.block--3
+            .table
+              .table-cell-valign
+                .block__text
+                  h1.text.text__header Side projects
+          
+      section.cont__block
+        .block.block--4
+          .table
+            .table-cell-valign
+              .block__text
+                h1.text.text__header Contact
+    
+    //- footer.footer
+    //-   p.text.footer__text Thanks for taking a look &#x1f60A;
+    
+  script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.js")
+  script(type="text/javascript", src="build/app.js")

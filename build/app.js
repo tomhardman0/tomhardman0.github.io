@@ -1,70 +1,69 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  var menu = {
-      "nodes": [{ "name": "Menu", "group": 1 }, { "name": "Recent Work", "group": 2 }, { "name": "Side Projects", "group": 2 }, { "name": "Github", "group": 2 }, { "name": "NPM", "group": 2 }, { "name": "Twitter", "group": 2 }],
-      "links": [{ "source": 0, "target": 1, "value": 5 }, { "source": 0, "target": 2, "value": 5 }, { "source": 0, "target": 3, "value": 5 }, { "source": 0, "target": 4, "value": 5 }, { "source": 0, "target": 5, "value": 5 }]
-  };
+    var interactions = (function () {
 
-  var interactions = (function () {
+        var width = window.innerWidth / 2;
+        var height = window.innerHeight / 2;
+        var nodes = [];
+        var container = document.querySelector('.js-nodes');
+        var mouse = undefined;
 
-      var width = window.innerWidth;
-      var height = window.innerHeight;
+        var force = d3.layout.force().size([width, height]);
 
-      var force = d3.layout.force().size([width, height]);
+        var svg = d3.select('.js-nodes').append('svg').attr('class', 'svg-interaction');
 
-      var svg = d3.select('body').append('svg').attr('class', 'menu').attr('width', width).attr('height', height);
+        for (var a = 0; a < 300; a++) {
+            var _node = {
+                "name": a,
+                "group": 1
+            };
+            nodes.push(_node);
+        }
 
-      force.nodes(menu.nodes).links(menu.links).charge(charge).linkDistance(width / 10).friction(0.9).gravity(0.4).start();
+        mouse = nodes[0];
+        mouse.fixed = true;
+        mouse.isMouse = true;
 
-      var link = svg.selectAll('.menu__link').data(menu.links).enter().append('line').attr('class', 'menu__link').style('stroke-width', 2);
+        force.nodes(nodes).charge(charge).friction(0.9).gravity(0.4).start();
 
-      var node = svg.selectAll('.node').data(menu.nodes).enter().append('g').attr('class', 'menu__node').call(force.drag);
+        var node = svg.selectAll('.node').data(nodes).enter().append('g');
 
-      node.append('circle').attr('class', 'node__circle').attr('r', radius);
+        node.append('circle').attr('fill', fill).attr('r', radius);
 
-      node.append('text').attr('class', 'node__text').attr('text-anchor', 'middle').attr('y', 8).text(function (d) {
-          return d.name;
-      });
+        force.on('tick', function () {
 
-      force.on('tick', function () {
-          link.attr('x1', function (d) {
-              return d.source.x;
-          }).attr('y1', function (d) {
-              return d.source.y;
-          }).attr('x2', function (d) {
-              return d.target.x;
-          }).attr('y2', function (d) {
-              return d.target.y;
-          });
+            // container.onmousemove = (e) => {
+            //     mouse.x = e.clientX;
+            //     mouse.y = e.clientY;
+            //     force.resume();
+            // };
+            node.attr('transform', function (d) {
+                return 'translate(' + d.x + ',' + d.y + ')';
+            });
+        });
 
-          node.attr('transform', function (d) {
-              return 'translate(' + d.x + ',' + d.y + ')';
-          });
-      });
+        function fill() {
+            var r = Math.floor(Math.random() * 255);
+            var g = Math.floor(Math.random() * 255);
+            var b = Math.floor(Math.random() * 255);
+            return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+        }
 
-      function charge(d) {
-          if (d.index === 0) return -20000;else return -5000;
-      }
+        function charge(d) {
+            if (d.isMouse) return -800;else return -140;
+        }
 
-      function radius(d) {
-          if (d.index === 0) return 45;else return 25;
-      }
+        function radius(d) {
+            if (d.isMouse) return 100;else return Math.floor(Math.random() * 20) + 8;
+        }
+    })
 
-      // function origin() {
-      //     for (let i = 0; i < menu.nodes.length; i++) {
-      //         menu.nodes[i].x = width / 2;
-      //         menu.nodes[i].y = height / 2;
-      //     }
-      // }
-      // origin();
-  })
+    var controllers = [interactions];
 
-  var controllers = [interactions];
-
-  controllers.forEach(function (ctrl) {
-    return ctrl();
-  });
+    controllers.forEach(function (ctrl) {
+      return ctrl();
+    });
 
 }());
 //# sourceMappingURL=app.js.map

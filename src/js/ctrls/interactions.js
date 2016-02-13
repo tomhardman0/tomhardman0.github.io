@@ -1,75 +1,69 @@
-import {menu} from '../data/menu';
-
-
 export default () => {
 
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+    let width = window.innerWidth / 2;
+    let height = window.innerHeight / 2;
+    let nodes = [];
+    let container = document.querySelector('.js-nodes');
+    let mouse;
 
     let force = d3.layout.force()
         .size([width, height]);
 
-    let svg = d3.select('body').append('svg')
-        .attr('class', 'menu')
-        .attr('width', width)
-        .attr('height', height);
+    let svg = d3.select('.js-nodes').append('svg')
+        .attr('class', 'svg-interaction');
+
+    for (let a=0; a<300; a++) {
+        let node = {
+            "name": a,
+            "group": 1
+        };
+        nodes.push(node);
+    }
+
+    mouse = nodes[0];
+    mouse.fixed = true;
+    mouse.isMouse = true;
 
     force
-        .nodes(menu.nodes)
-        .links(menu.links)
+        .nodes(nodes)
         .charge(charge)
-        .linkDistance(width/10)
         .friction(0.9)
         .gravity(0.4)
         .start();
 
-    var link = svg.selectAll('.menu__link')
-        .data(menu.links)
-        .enter().append('line')
-        .attr('class', 'menu__link')
-        .style('stroke-width', 2);
-
     var node = svg.selectAll('.node')
-        .data(menu.nodes)
-        .enter().append('g')
-        .attr('class', 'menu__node')
-        .call(force.drag);
+        .data(nodes)
+        .enter().append('g');
 
     node.append('circle')
-        .attr('class', 'node__circle')
-        .attr('r', radius)
+        .attr('fill', fill)
+        .attr('r', radius);
 
-    node.append('text')
-        .attr('class', 'node__text')
-        .attr('text-anchor', 'middle')
-        .attr('y', 8)
-        .text(function(d) { return d.name; });
+    force.on('tick', () => {
 
-    force.on('tick', function() {
-        link.attr('x1', function(d) { return d.source.x; })
-            .attr('y1', function(d) { return d.source.y; })
-            .attr('x2', function(d) { return d.target.x; })
-            .attr('y2', function(d) { return d.target.y; });
-
-        node.attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; })
+        // container.onmousemove = (e) => {
+        //     mouse.x = e.clientX;
+        //     mouse.y = e.clientY;
+        //     force.resume();
+        // };
+        node.attr('transform', (d) => 'translate(' + d.x + ',' + d.y + ')');
     });
 
+    function fill() {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
     function charge(d) {
-        if (d.index === 0) return -20000;
-        else return -5000;
+        if (d.isMouse) return -800;
+        else return -140;
     }
 
     function radius(d) {
-        if (d.index === 0) return 45;
-        else return 25;
+        if (d.isMouse) return 100;
+        else return Math.floor(Math.random() * 20) + 8;
     }
-
-    // function origin() {
-    //     for (let i = 0; i < menu.nodes.length; i++) {
-    //         menu.nodes[i].x = width / 2;
-    //         menu.nodes[i].y = height / 2;
-    //     }
-    // }
-    // origin();
 
 }
