@@ -1,10 +1,10 @@
+import { nodes } from '../data/nodes'
+
 export default () => {
 
     let width = window.innerWidth / 2;
     let height = window.innerHeight / 2;
-    let nodes = [];
     let container = document.querySelector('.js-nodes');
-    let mouse;
 
     let force = d3.layout.force()
         .size([width, height]);
@@ -12,40 +12,26 @@ export default () => {
     let svg = d3.select('.js-nodes').append('svg')
         .attr('class', 'svg-interaction');
 
-    for (let a=0; a<300; a++) {
-        let node = {
-            "name": a,
-            "group": 1
-        };
-        nodes.push(node);
-    }
-
-    mouse = nodes[0];
-    mouse.fixed = true;
-    mouse.isMouse = true;
-
     force
         .nodes(nodes)
-        .charge(charge)
-        .friction(0.9)
-        .gravity(0.4)
+        .charge(-1000)
+        .friction(0.95)
+        .gravity(0.5)
         .start();
 
     var node = svg.selectAll('.node')
         .data(nodes)
         .enter().append('g');
 
-    node.append('circle')
+    node.append('text')
         .attr('fill', fill)
-        .attr('r', radius);
+        .attr('stroke', fill)
+        .style('font-family', 'Poiret One')
+        .style('font-variant', 'small-caps')
+        .style('font-size', '1.5em')
+        .text((d) => d.name);
 
     force.on('tick', () => {
-
-        // container.onmousemove = (e) => {
-        //     mouse.x = e.clientX;
-        //     mouse.y = e.clientY;
-        //     force.resume();
-        // };
         node.attr('transform', (d) => 'translate(' + d.x + ',' + d.y + ')');
     });
 
@@ -56,14 +42,20 @@ export default () => {
         return `rgb(${r}, ${g}, ${b})`;
     }
 
-    function charge(d) {
-        if (d.isMouse) return -800;
-        else return -140;
+    function keepMoving() {
+        let gravity = Math.random();
+        let charge = Math.floor(Math.random() * 3000) + 1000;
+        setTimeout(() => {
+            force.gravity(gravity);
+            force.charge(-charge);
+            force.start();
+            keepMoving();
+        }, 1500);
     }
+    keepMoving();
 
     function radius(d) {
-        if (d.isMouse) return 100;
-        else return Math.floor(Math.random() * 20) + 8;
+        return Math.floor(Math.random() * 20) + 8;
     }
 
 }

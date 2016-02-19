@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Poiret+One')
-
 body
   background-color: #333333
 
@@ -7,6 +5,7 @@ body
   display: table
   width: 100%
   height: 100%
+  transition: background-color 1s $easing
 
 .table-cell-valign
   display: table-cell
@@ -32,53 +31,8 @@ body
   left: 0
   width: 100%
   height: 100%
+  transform: translateZ(0)
   z-index: -1
-
-.block
-  width: 100%
-  height: 100%
-  transition: transform 5s ease-in
-  cursor: pointer
-  overflow: hidden
-  &:hover
-    transform: translateZ(0) scale(1.5)
-    .text__header
-      color: white
-
-.block--1
-  cursor: default
-  background-image: url('img/block--1.jpg')
-  background-size: cover
-  transform: translateZ(0) scale(1.2)
-
-.block--2
-  background-image: url('img/block--2.png')
-  background-size: cover
-//
-// .block--3
-// .block--4
-
-.block__text
-  display: inline-block
-
-.text
-  font-family: 'Poiret One', cursive
-  font-variant: small-caps
-  color: darken(white, 1%)
-  font-size: 1.6em
-
-.text__header
-  font-size: 2.4em
-  &:after
-    content: ''
-    display: block
-    position: relative
-    top: 4px
-    height: 1px
-    margin: 0 auto 10px
-    width: 96%
-    background-color: white
-    color: white
 
 .footer
   width: 100%
