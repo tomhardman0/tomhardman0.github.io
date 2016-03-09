@@ -62,7 +62,12 @@ body {
 
 .cont {
   width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 0.3s; }
+
+.cont--visible {
+  opacity: 1; }
 
 .cont__block {
   overflow: hidden;
