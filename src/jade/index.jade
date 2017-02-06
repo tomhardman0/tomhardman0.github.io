@@ -2,23 +2,20 @@ doctype html
 html
   head
     
-    meta(charset="utf8")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
     
     title  Tom Hardman
     link(rel="stylesheet", type="text/css", href="build/index.css")
     
   body
-    
-      //- .floating.floating--1 J
-      //- .floating.floating--2 J
-      //- .floating.floating--3 J
-      //- .floating.floating--4 J
-    
+
       section.cont__block
         .block.block--1
           .table
             .table-cell-valign
-              .block__letter T
+              .block__letter.block__letter--T T
           .floating.floating--1 J
     
       section.cont__block
@@ -31,8 +28,9 @@ html
         .block.block--4
           .table
             .table-cell-valign
-              .block__letter H
+              .block__letter.block__letter--H H
           .floating.floating--4 J
-      
+          .typing.typing--1.js-text
+          .typing.typing--2.js-text
     
   script(type="text/javascript", src="build/app.js")

@@ -25,12 +25,18 @@
           color: rgb(255, 115, 185)
     .floating--4
       -webkit-text-stroke-color: rgb(5, 187, 245)
+    .typing--2
+      color: rgb(255, 115, 185)
 
 .block__letter
   color: white
   font-size: 15em
-  font-family: 'Impact'
+  font-family: 'Passion One', cursive
   transition: color 110ms linear
+  &--T
+    animation: swell 14s infinite normal
+  &--H
+    animation: swell 14s 3s infinite normal
 
 .cont__block
   width: 50vw
@@ -40,7 +46,7 @@
 
 .floating
   position: absolute
-  font-family: 'Impact'
+  font-family: 'Passion One', cursive
   font-size: 15em
   transform: translate(-50%, -50%)
   transition: 110ms linear
@@ -73,3 +79,30 @@
   clip-path: inset(50% 0 0 50%)
   color: white
   -webkit-text-stroke-color: white
+
+.typing
+  position: absolute
+  bottom: -4px
+  left: 0
+  transform: translateX(-50%)
+  text-align: center
+  font-family: 'Passion One', cursive
+  font-size: 1.2em
+  text-transform: uppercase
+  transition: color 110ms linear
+
+.typing--1
+  color: rgb(255, 115, 185)
+  clip-path: inset(0 50% 0 0)
+
+.typing--2
+  color: white
+  clip-path: inset(0 0 0 50%)
+
+@keyframes swell
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(1.05)
+  100%
+    transform: scale(1)

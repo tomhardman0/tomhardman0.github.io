@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Exo+2:800|Open+Sans:800|Passion+One|Raleway:900");
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -46,7 +47,8 @@ table {
   border-spacing: 0; }
 
 body {
-  background-color: white; }
+  background-color: white;
+  overflow: hidden; }
 
 .table {
   display: table;
@@ -86,12 +88,18 @@ body {
     color: #ff73b9; }
   .block--4:hover .floating--4 {
     -webkit-text-stroke-color: #05bbf5; }
+  .block--4:hover .typing--2 {
+    color: #ff73b9; }
 
 .block__letter {
   color: white;
   font-size: 15em;
-  font-family: 'Impact';
+  font-family: 'Passion One', cursive;
   transition: color 110ms linear; }
+  .block__letter--T {
+    animation: swell 14s infinite normal; }
+  .block__letter--H {
+    animation: swell 14s 3s infinite normal; }
 
 .cont__block {
   width: 50vw;
@@ -101,7 +109,7 @@ body {
 
 .floating {
   position: absolute;
-  font-family: 'Impact';
+  font-family: 'Passion One', cursive;
   font-size: 15em;
   transform: translate(-50%, -50%);
   transition: 110ms linear;
@@ -134,3 +142,30 @@ body {
   clip-path: inset(50% 0 0 50%);
   color: white;
   -webkit-text-stroke-color: white; }
+
+.typing {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: 'Passion One', cursive;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  transition: color 110ms linear; }
+
+.typing--1 {
+  color: #ff73b9;
+  clip-path: inset(0 50% 0 0); }
+
+.typing--2 {
+  color: white;
+  clip-path: inset(0 0 0 50%); }
+
+@keyframes swell {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.05); }
+  100% {
+    transform: scale(1); } }
