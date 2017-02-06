@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Poiret+One");
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -47,13 +46,12 @@ table {
   border-spacing: 0; }
 
 body {
-  background-color: #333333; }
+  background-color: white; }
 
 .table {
   display: table;
   width: 100%;
-  height: 100%;
-  transition: background-color 1s cubic-bezier(0.47, 0, 0.745, 0.715); }
+  height: 100%; }
 
 .table-cell-valign {
   display: table-cell;
@@ -65,97 +63,74 @@ body {
   width: 100vw;
   height: 100vh;
   opacity: 0;
-  padding: 12px;
   transition: opacity 0.2s; }
-
-.cont--visible {
-  opacity: 1; }
-
-.cont__block {
-  overflow: hidden;
-  width: calc(50vw - 12px);
-  height: calc(50vh - 12px);
-  float: left; }
-
-.cont__block--d3 {
-  position: relative; }
-
-.svg-interaction {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateZ(0);
-  z-index: -1; }
-
-.footer {
-  width: 100%;
-  height: 30px; }
-
-.footer__text {
-  text-align: center;
-  margin: 0 auto;
-  font-size: 0.8em;
-  line-height: 30px; }
 
 .block {
   width: 100%;
   height: 100%;
-  transition: transform 1s cubic-bezier(0.47, 0, 0.745, 0.715);
-  cursor: pointer;
+  transition: background-color 110ms linear;
   overflow: hidden; }
   .block:hover {
-    transform: translateZ(0) scale(1.5); }
-    .block:hover .text {
-      opacity: 1; }
-    .block:hover .text__header {
-      color: white; }
-    .block:hover .table {
-      background-color: rgba(0, 0, 0, 0.3); }
+    background-color: white; }
 
 .block--1 {
-  cursor: default;
-  background-image: url("img/block--1.jpg");
-  background-size: cover;
-  transform: translateZ(0) scale(1.2); }
-  .block--1 .text {
-    opacity: 1; }
-  .block--1 .table {
-    background-color: rgba(0, 0, 0, 0.3); }
-  .block--1:hover .text {
-    opacity: 1; }
-  .block--1:hover .table {
-    background-color: rgba(0, 0, 0, 0.3); }
-
-.block--2 {
-  background-image: url("img/block--2.png");
-  background-size: cover; }
+  background-color: #05bbf5; }
+  .block--1:hover .table .table-cell-valign .block__letter {
+    color: #05bbf5; }
+  .block--1:hover .floating--1 {
+    -webkit-text-stroke-color: #ff73b9; }
 
 .block--4 {
-  background-image: url("img/block--2.png");
-  background-size: cover; }
+  background-color: #ff73b9; }
+  .block--4:hover .table .table-cell-valign .block__letter {
+    color: #ff73b9; }
+  .block--4:hover .floating--4 {
+    -webkit-text-stroke-color: #05bbf5; }
 
-.block__text {
-  display: inline-block; }
+.block__letter {
+  color: white;
+  font-size: 15em;
+  font-family: 'Impact';
+  transition: color 110ms linear; }
 
-.text {
-  font-family: 'Poiret One', cursive;
-  font-variant: small-caps;
-  color: #fcfcfc;
-  font-size: 1.6em;
-  opacity: 0;
-  transition: opacity 1s cubic-bezier(0.47, 0, 0.745, 0.715); }
+.cont__block {
+  width: 50vw;
+  height: 50vh;
+  float: left;
+  position: relative; }
 
-.text__header {
-  font-size: 2.4em; }
-  .text__header:after {
-    content: '';
-    display: block;
-    position: relative;
-    top: 4px;
-    height: 1px;
-    margin: 0 auto 10px;
-    width: 96%;
-    background-color: white;
-    color: white; }
+.floating {
+  position: absolute;
+  font-family: 'Impact';
+  font-size: 15em;
+  transform: translate(-50%, -50%);
+  transition: 110ms linear;
+  -webkit-text-stroke-width: 1px; }
+
+.floating--1 {
+  color: white;
+  clip-path: inset(0 50% 50% 0);
+  top: 100%;
+  left: 100%;
+  -webkit-text-stroke-color: white; }
+
+.floating--2 {
+  top: 100%;
+  left: 0;
+  clip-path: inset(0 0 50% 50%);
+  color: #ff73b9;
+  -webkit-text-stroke-color: #ff73b9; }
+
+.floating--3 {
+  top: 0;
+  left: 100%;
+  clip-path: inset(50% 50% 0 0);
+  color: #05bbf5;
+  -webkit-text-stroke-color: #05bbf5; }
+
+.floating--4 {
+  top: 0;
+  left: 0;
+  clip-path: inset(50% 0 0 50%);
+  color: white;
+  -webkit-text-stroke-color: white; }

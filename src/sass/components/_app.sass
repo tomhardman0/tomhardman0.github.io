@@ -1,11 +1,10 @@
 body
-  background-color: #333333
+  background-color: white
 
 .table
   display: table
   width: 100%
   height: 100%
-  transition: background-color 1s $easing
 
 .table-cell-valign
   display: table-cell
@@ -17,36 +16,4 @@ body
   width: 100vw
   height: 100vh
   opacity: 0
-  padding: #{$border}
   transition: opacity 0.2s
-
-.cont--visible
-  opacity: 1
-
-.cont__block
-  overflow: hidden
-  width: calc(50vw - #{$border})
-  height: calc(50vh - #{$border})
-  float: left
-
-.cont__block--d3
-  position: relative
-
-.svg-interaction
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  transform: translateZ(0)
-  z-index: -1
-
-.footer
-  width: 100%
-  height: 30px
-
-.footer__text
-  text-align: center
-  margin: 0 auto
-  font-size: 0.8em
-  line-height: 30px

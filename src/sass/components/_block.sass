@@ -1,61 +1,75 @@
 .block
   width: 100%
   height: 100%
-  transition: transform 1s $easing
-  cursor: pointer
+  transition: background-color 110ms linear
   overflow: hidden
   &:hover
-    transform: translateZ(0) scale(1.5)
-    .text
-      opacity: 1
-    .text__header
-      color: white
-    .table
-      background-color: rgba(0, 0, 0, 0.3)
+    background-color: white
 
 .block--1
-  cursor: default
-  background-image: url('img/block--1.jpg')
-  background-size: cover
-  transform: translateZ(0) scale(1.2)
-  .text
-    opacity: 1
-  .table
-    background-color: rgba(0, 0, 0, 0.3)
+  background-color: rgb(5, 187, 245)
   &:hover
-    .text
-      opacity: 1
     .table
-      background-color: rgba(0, 0, 0, 0.3)
-
-.block--2
-  background-image: url('img/block--2.png')
-  background-size: cover
+      .table-cell-valign
+        .block__letter
+          color: rgb(5, 187, 245)
+    .floating--1
+      -webkit-text-stroke-color: rgb(255, 115, 185)
 
 .block--4
-  background-image: url('img/block--2.png')
-  background-size: cover
+  background-color: rgb(255, 115, 185)
+  &:hover
+    .table
+      .table-cell-valign
+        .block__letter
+          color: rgb(255, 115, 185)
+    .floating--4
+      -webkit-text-stroke-color: rgb(5, 187, 245)
 
-.block__text
-  display: inline-block
+.block__letter
+  color: white
+  font-size: 15em
+  font-family: 'Impact'
+  transition: color 110ms linear
 
-.text
-  font-family: 'Poiret One', cursive
-  font-variant: small-caps
-  color: darken(white, 1%)
-  font-size: 1.6em
-  opacity: 0
-  transition: opacity 1s $easing
+.cont__block
+  width: 50vw
+  height: 50vh
+  float: left
+  position: relative
 
-.text__header
-  font-size: 2.4em
-  &:after
-    content: ''
-    display: block
-    position: relative
-    top: 4px
-    height: 1px
-    margin: 0 auto 10px
-    width: 96%
-    background-color: white
-    color: white
+.floating
+  position: absolute
+  font-family: 'Impact'
+  font-size: 15em
+  transform: translate(-50%, -50%)
+  transition: 110ms linear
+  -webkit-text-stroke-width: 1px
+
+.floating--1
+  color: white
+  clip-path: inset(0 50% 50% 0)
+  top: 100%
+  left: 100%
+  -webkit-text-stroke-color: white
+
+.floating--2
+  top: 100%
+  left: 0
+  clip-path: inset(0 0 50% 50%)
+  color: rgb(255, 115, 185)
+  -webkit-text-stroke-color: rgb(255, 115, 185)
+
+.floating--3
+  top: 0
+  left: 100%
+  clip-path: inset(50% 50% 0 0)
+  color: rgb(5, 187, 245)
+  -webkit-text-stroke-color: rgb(5, 187, 245)
+
+.floating--4
+  top: 0
+  left: 0
+  clip-path: inset(50% 0 0 50%)
+  color: white
+  -webkit-text-stroke-color: white
