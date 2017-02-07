@@ -3,7 +3,7 @@
 
     var intro = (function () {
         var textElems = document.querySelectorAll('.js-text');
-        var string = 'War on the palaces.';
+        var string = 'Greater than development.';
 
         var updateText = function updateText(element, index) {
             setTimeout(function () {

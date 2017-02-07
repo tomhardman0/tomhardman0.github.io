@@ -1,6 +1,6 @@
 export default () => {
     const textElems = document.querySelectorAll('.js-text');
-    const string = 'War on the palaces.';
+    const string = 'Greater than development.';
 
     const updateText = (element, index) => {
         setTimeout(() => {

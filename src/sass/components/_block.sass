@@ -16,6 +16,14 @@
     .floating--1
       -webkit-text-stroke-color: rgb(255, 115, 185)
 
+.block--3
+  cursor: pointer
+  &:hover
+    .block__text
+      transform: translateY(0%)
+    .block__text__tag
+      opacity: 1
+
 .block--4
   background-color: rgb(255, 115, 185)
   &:hover
@@ -38,6 +46,22 @@
   &--H
     animation: swell 14s 3s infinite normal
 
+.block__text
+  color: rgb(255, 115, 185)
+  transition: transform 110ms linear
+  font-size: 3em
+  font-family: 'Passion One', cursive
+  text-transform: uppercase
+  transform: translateY(20%)
+
+.block__text__tag
+  color: rgb(255, 115, 185)
+  transition: opacity 110ms linear 110ms
+  font-size: 1em
+  text-transform: uppercase
+  font-family: 'Passion One', cursive
+  opacity: 0
+
 .cont__block
   width: 50vw
   height: 50vh
@@ -47,6 +71,7 @@
 .floating
   position: absolute
   font-family: 'Passion One', cursive
+  font-weight: 700
   font-size: 15em
   transform: translate(-50%, -50%)
   transition: 110ms linear

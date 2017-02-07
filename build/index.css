@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Exo+2:800|Open+Sans:800|Passion+One|Raleway:900");
+@import url("https://fonts.googleapis.com/css?family=Passion+One:400,700");
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -48,7 +48,9 @@ table {
 
 body {
   background-color: white;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 .table {
   display: table;
@@ -82,6 +84,13 @@ body {
   .block--1:hover .floating--1 {
     -webkit-text-stroke-color: #ff73b9; }
 
+.block--3 {
+  cursor: pointer; }
+  .block--3:hover .block__text {
+    transform: translateY(0%); }
+  .block--3:hover .block__text__tag {
+    opacity: 1; }
+
 .block--4 {
   background-color: #ff73b9; }
   .block--4:hover .table .table-cell-valign .block__letter {
@@ -101,6 +110,22 @@ body {
   .block__letter--H {
     animation: swell 14s 3s infinite normal; }
 
+.block__text {
+  color: #ff73b9;
+  transition: transform 110ms linear;
+  font-size: 3em;
+  font-family: 'Passion One', cursive;
+  text-transform: uppercase;
+  transform: translateY(20%); }
+
+.block__text__tag {
+  color: #ff73b9;
+  transition: opacity 110ms linear 110ms;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-family: 'Passion One', cursive;
+  opacity: 0; }
+
 .cont__block {
   width: 50vw;
   height: 50vh;
@@ -110,6 +135,7 @@ body {
 .floating {
   position: absolute;
   font-family: 'Passion One', cursive;
+  font-weight: 700;
   font-size: 15em;
   transform: translate(-50%, -50%);
   transition: 110ms linear;
